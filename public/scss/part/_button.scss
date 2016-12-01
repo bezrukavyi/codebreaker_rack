@@ -1,0 +1,131 @@
+@mixin button($color) {
+  @extend .transition;
+  @extend .flex-row;
+  @extend .border-box;
+  box-shadow: none;
+  border: 0;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  background: map-get($color, default);
+  &:hover {
+    background: map-get($color, light);
+    border-color: map-get($color, light);
+  }
+  &:active {
+    background: map-get($color, dark);
+    border-color: map-get($color, dark);
+  }
+}
+.buttons-container {
+  @extend .flex-row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  &.long {
+    max-width: 720px;
+  }
+  .button {
+    margin: 0 15px 0 0;
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+.button {
+  @extend .border-radius;
+  height: 50px;
+  width: 160px;
+  font-size: 20px;
+  padding: 5px;
+  margin: 0 auto;
+}
+.green-button {
+  @extend .button;
+  @include button($green);
+}
+.grey-button {
+  @extend .button;
+  @include button($grey);
+  border: 1px solid #ccc;
+}
+.red-button {
+  @extend .button;
+  @include button($red);
+}
+.blue-button {
+  @extend .button;
+  @include button($blue);
+}
+
+.score-circle {
+  border-radius: 100%;
+  background: #fff;
+  color: #000;
+  padding: 5px;
+  min-width: 25px;
+  margin-left: 10px;
+}
+
+// Rename
+.svg-button {
+  @extend .transition;
+  position: relative;
+  cursor: pointer;
+  display: block;
+  min-width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  background-color: #fff;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  .svg-icon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    @include center-middle(16px, 16px);
+    & path, line {
+      @extend .transition;
+    }
+    box-shadow: none;
+  }
+  &:hover {
+    .svg-icon path {
+      fill: map-get($green, light);
+    }
+  }
+  &:active {
+    transform: scale(0.9);
+    .svg-icon path {
+      fill: map-get($green, light);
+    }
+  }
+}
+// END person-edit
+
+.cross {
+  cursor: pointer;
+  position: absolute;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  @include center-middle(12px, 12px);
+  &:after {
+    @extend .transition;
+    @extend .before-after;
+    width: 2px;
+    height: 12px;
+    background-color: #52524d;
+    transform: translate3d(5px, 0px, 0) rotate(45deg) scaleX(0.9);
+  }
+  &:hover:after {
+    background-color: map-get($green, default);
+  }
+  &:active:after {
+    background-color: map-get($green, light);
+  }
+  &:before {
+    @extend .cross:after;
+    transform: translate3d(5px, 0px, 0) rotate(-45deg) scaleX(0.9);
+  }
+}

@@ -1,0 +1,677 @@
+/* Libs */
+@import url(libs/normalize.css);
+/* Parts */
+/* line 21, ../scss/part/_button.scss */
+.buttons-container {
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+}
+/* line 26, ../scss/part/_button.scss */
+.buttons-container.long {
+  max-width: 720px;
+}
+/* line 29, ../scss/part/_button.scss */
+.buttons-container .button, .buttons-container .green-button, .buttons-container .grey-button, .buttons-container .red-button, .buttons-container .blue-button {
+  margin: 0 15px 0 0;
+}
+/* line 31, ../scss/part/_button.scss */
+.buttons-container .button:last-child, .buttons-container .green-button:last-child, .buttons-container .grey-button:last-child, .buttons-container .red-button:last-child, .buttons-container .blue-button:last-child {
+  margin: 0;
+}
+
+/* line 36, ../scss/part/_button.scss */
+.button, .green-button, .grey-button, .red-button, .blue-button {
+  height: 50px;
+  width: 160px;
+  font-size: 20px;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+/* line 44, ../scss/part/_button.scss */
+.green-button {
+  box-shadow: none;
+  border: 0;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  background: #0da931;
+}
+/* line 12, ../scss/part/_button.scss */
+.green-button:hover {
+  background: #00be2c;
+  border-color: #00be2c;
+}
+/* line 16, ../scss/part/_button.scss */
+.green-button:active {
+  background: #097522;
+  border-color: #097522;
+}
+
+/* line 48, ../scss/part/_button.scss */
+.grey-button {
+  box-shadow: none;
+  border: 0;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  background: #d1d1d1;
+  border: 1px solid #ccc;
+}
+/* line 12, ../scss/part/_button.scss */
+.grey-button:hover {
+  background: #e3e3e3;
+  border-color: #e3e3e3;
+}
+/* line 16, ../scss/part/_button.scss */
+.grey-button:active {
+  background: #b1b1b1;
+  border-color: #b1b1b1;
+}
+
+/* line 53, ../scss/part/_button.scss */
+.red-button {
+  box-shadow: none;
+  border: 0;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  background: #f70a04;
+}
+/* line 12, ../scss/part/_button.scss */
+.red-button:hover {
+  background: #ff7800;
+  border-color: #ff7800;
+}
+/* line 16, ../scss/part/_button.scss */
+.red-button:active {
+  background: #e54817;
+  border-color: #e54817;
+}
+
+/* line 57, ../scss/part/_button.scss */
+.blue-button {
+  box-shadow: none;
+  border: 0;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  background: #4571b4;
+}
+/* line 12, ../scss/part/_button.scss */
+.blue-button:hover {
+  background: #0094ff;
+  border-color: #0094ff;
+}
+/* line 16, ../scss/part/_button.scss */
+.blue-button:active {
+  background: #3c5b8c;
+  border-color: #3c5b8c;
+}
+
+/* line 62, ../scss/part/_button.scss */
+.score-circle {
+  border-radius: 100%;
+  background: #fff;
+  color: #000;
+  padding: 5px;
+  min-width: 25px;
+  margin-left: 10px;
+}
+
+/* line 72, ../scss/part/_button.scss */
+.svg-button {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  min-width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  background-color: #fff;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+/* line 82, ../scss/part/_button.scss */
+.svg-button .svg-icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 50%;
+  top: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  box-shadow: none;
+}
+/* line 93, ../scss/part/_button.scss */
+.svg-button:hover .svg-icon path {
+  fill: #00be2c;
+}
+/* line 97, ../scss/part/_button.scss */
+.svg-button:active {
+  transform: scale(0.9);
+}
+/* line 99, ../scss/part/_button.scss */
+.svg-button:active .svg-icon path {
+  fill: #00be2c;
+}
+
+/* line 106, ../scss/part/_button.scss */
+.cross {
+  cursor: pointer;
+  position: absolute;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  top: 50%;
+  margin-left: -6px;
+  margin-top: -6px;
+}
+/* line 113, ../scss/part/_button.scss */
+.cross:after, .cross:before {
+  width: 2px;
+  height: 12px;
+  background-color: #52524d;
+  transform: translate3d(5px, 0px, 0) rotate(45deg) scaleX(0.9);
+}
+/* line 121, ../scss/part/_button.scss */
+.cross:hover:after, .cross:hover:before {
+  background-color: #0da931;
+}
+/* line 124, ../scss/part/_button.scss */
+.cross:active:after, .cross:active:before {
+  background-color: #00be2c;
+}
+/* line 127, ../scss/part/_button.scss */
+.cross:before {
+  transform: translate3d(5px, 0px, 0) rotate(-45deg) scaleX(0.9);
+}
+
+/* line 4, ../scss/part/_fields.scss */
+.send-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* line 9, ../scss/part/_fields.scss */
+.wrong-message {
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* line 22, ../scss/part/_fields.scss */
+.wrong-message.show {
+  opacity: 1;
+  height: 40px !important;
+}
+
+/* line 27, ../scss/part/_fields.scss */
+.fields-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  max-width: 535px;
+}
+/* line 33, ../scss/part/_fields.scss */
+.fields-container:last-child {
+  margin-bottom: 0;
+}
+
+/* line 37, ../scss/part/_fields.scss */
+.form-input, textarea {
+  display: flex;
+  flex: 2;
+  width: 100%;
+  box-shadow: none;
+  padding: 5px 10px;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000;
+  font-weight: normal;
+  min-height: 38px;
+  background-color: #fff;
+  border: 1px solid #b1b1b1;
+}
+/* line 62, ../scss/part/_fields.scss */
+.form-input.readonly, textarea.readonly {
+  border-color: transparent;
+}
+/* line 64, ../scss/part/_fields.scss */
+.form-input.readonly:hover, textarea.readonly:hover {
+  border-color: transparent;
+  box-shadow: none;
+}
+/* line 68, ../scss/part/_fields.scss */
+.form-input.readonly:active, textarea.readonly:active {
+  border-color: transparent;
+}
+/* line 71, ../scss/part/_fields.scss */
+.form-input.readonly:focus, textarea.readonly:focus {
+  border-color: transparent;
+}
+
+/* Input state */
+/* line 77, ../scss/part/_fields.scss */
+.form-input-hover, .form-input:hover, textarea:hover {
+  border-color: #00be2c;
+  box-shadow: 0px 0 4px #00be2c;
+}
+
+/* line 81, ../scss/part/_fields.scss */
+.form-input-focus, .form-input:focus, textarea:focus {
+  box-shadow: none;
+  border-color: #00be2c;
+}
+
+/* END Input state */
+/* line 86, ../scss/part/_fields.scss */
+.form-label {
+  justify-content: flex-end;
+  text-align: right;
+  font-size: 15px;
+  line-height: 20px;
+  margin-right: 10px;
+  color: #3a3a3a;
+  width: 160px;
+  font-weight: 300;
+}
+/* line 96, ../scss/part/_fields.scss */
+.form-label img, .form-label .svg-icon {
+  display: none;
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  top: 50%;
+  margin-top: -13px;
+  left: 5px;
+}
+
+/* line 105, ../scss/part/_fields.scss */
+textarea {
+  resize: none;
+  outline: none;
+  box-shadow: none;
+  margin: 0;
+  text-align: left;
+}
+
+/* Necessar */
+/* line 115, ../scss/part/_fields.scss */
+.necessar {
+  position: relative;
+}
+/* line 117, ../scss/part/_fields.scss */
+.necessar:after {
+  content: '*';
+}
+
+/* line 122, ../scss/part/_fields.scss */
+.necessar-message {
+  font-size: 14px;
+  padding-left: 225px;
+  margin: 15px 0 10px 0;
+}
+
+/* END Necessar */
+/* Blocks */
+/* line 1, ../scss/blocks/_header.scss */
+header {
+  justify-content: space-between;
+  border: 1px solid #4571b4;
+  background: #3c5b8c;
+  padding: 20px;
+}
+
+/* line 9, ../scss/blocks/_header.scss */
+.logo, .nav-hint, .nav-scores {
+  font-size: 30px;
+  color: #fff;
+}
+/* line 13, ../scss/blocks/_header.scss */
+.logo:hover, .nav-hint:hover, .nav-scores:hover {
+  color: #b1b1b1;
+}
+
+/* line 20, ../scss/blocks/_header.scss */
+.nav-hint {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+/* line 25, ../scss/blocks/_header.scss */
+.nav-scores {
+  font-size: 20px;
+}
+
+/* line 1, ../scss/blocks/_table.scss */
+div.table-title {
+  display: block;
+  margin: auto;
+  max-width: 600px;
+  padding: 5px;
+  width: 100%;
+}
+
+/* line 9, ../scss/blocks/_table.scss */
+.table-score .table-fill {
+  background: #fff;
+  border-radius: 3px;
+  border-collapse: collapse;
+  margin: auto;
+  padding: 5px;
+  width: 100%;
+  margin-top: 35px;
+}
+/* line 18, ../scss/blocks/_table.scss */
+.table-score th {
+  color: #fff;
+  background: #4571b4;
+  border-right: 1px solid #000;
+  border-bottom: 4px solid #b1b1b1;
+  font-size: 20px;
+  padding: 15px;
+  text-align: left;
+  font-weight: 400;
+  vertical-align: middle;
+}
+/* line 29, ../scss/blocks/_table.scss */
+.table-score th:first-child {
+  border-top-left-radius: 3px;
+}
+/* line 32, ../scss/blocks/_table.scss */
+.table-score th:last-child {
+  border-top-right-radius: 3px;
+  border-right: none;
+}
+/* line 36, ../scss/blocks/_table.scss */
+.table-score tr {
+  border-top: 1px solid #d1d1d1;
+  border-bottom: 1px solid #d1d1d1;
+  color: #000;
+  font-size: 16px;
+}
+/* line 42, ../scss/blocks/_table.scss */
+.table-score tr:hover td {
+  background: #b1b1b1;
+  color: #FFFFFF;
+}
+/* line 49, ../scss/blocks/_table.scss */
+.table-score tr:first-child {
+  border-top: none;
+}
+/* line 53, ../scss/blocks/_table.scss */
+.table-score tr:nth-child(odd) td {
+  background: #EBEBEB;
+}
+/* line 57, ../scss/blocks/_table.scss */
+.table-score tr:nth-child(odd):hover td {
+  background: #b1b1b1;
+}
+/* line 61, ../scss/blocks/_table.scss */
+.table-score tr:last-child td:first-child {
+  border-bottom-left-radius: 3px;
+}
+/* line 65, ../scss/blocks/_table.scss */
+.table-score tr:last-child td:last-child {
+  border-bottom-right-radius: 3px;
+}
+/* line 69, ../scss/blocks/_table.scss */
+.table-score td {
+  background: #fff;
+  padding: 15px;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: 300;
+  border-right: 1px solid #d1d1d1;
+}
+/* line 79, ../scss/blocks/_table.scss */
+.table-score td:last-child {
+  border-right: 0px;
+}
+/* line 83, ../scss/blocks/_table.scss */
+.table-score th.text-left {
+  text-align: left;
+}
+/* line 87, ../scss/blocks/_table.scss */
+.table-score th.text-center {
+  text-align: center;
+}
+/* line 91, ../scss/blocks/_table.scss */
+.table-score th.text-right {
+  text-align: right;
+}
+/* line 95, ../scss/blocks/_table.scss */
+.table-score td.text-left {
+  text-align: left;
+}
+/* line 99, ../scss/blocks/_table.scss */
+.table-score td.text-center {
+  text-align: center;
+}
+/* line 103, ../scss/blocks/_table.scss */
+.table-score td.text-right {
+  text-align: right;
+}
+
+/* Pages */
+/* line 1, ../scss/pages/_index.scss */
+.index-title {
+  font-size: 50px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* line 1, ../scss/pages/_play.scss */
+.play-title {
+  font-size: 40px;
+  text-align: center;
+  color: #b1b1b1;
+  margin-bottom: 35px;
+}
+
+/* line 7, ../scss/pages/_play.scss */
+.guess-list {
+  justify-content: center;
+  margin: 0 0 20px 0;
+}
+
+/* line 12, ../scss/pages/_play.scss */
+.guess-item {
+  margin-right: 20px;
+}
+
+/* line 15, ../scss/pages/_play.scss */
+.guess-progress {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 50px;
+}
+/* line 19, ../scss/pages/_play.scss */
+.guess-progress .progress {
+  color: #0da931;
+}
+/* line 21, ../scss/pages/_play.scss */
+.guess-progress .progress.empty {
+  color: #f70a04;
+}
+
+/* line 26, ../scss/pages/_play.scss */
+.guess-block {
+  display: block;
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+/* line 31, ../scss/pages/_play.scss */
+.guess-block:last-child {
+  margin: 0;
+}
+/* line 35, ../scss/pages/_play.scss */
+.guess-block.wrong .guess-lines:after, .guess-block.wrong .guess-lines:before {
+  background: #f70a04;
+}
+
+/* line 41, ../scss/pages/_play.scss */
+.guess-lines:after, .guess-lines:before {
+  width: 100%;
+  height: 4px;
+  background: #000;
+  top: 15px;
+  left: 0;
+}
+/* line 50, ../scss/pages/_play.scss */
+.guess-lines:before {
+  top: inherit;
+  bottom: 15px;
+}
+
+/* line 56, ../scss/pages/_play.scss */
+.guess-input {
+  height: 100%;
+  width: 100%;
+  font-size: 50px;
+  border: 0;
+  padding: 0;
+  text-align: center;
+}
+/* line 64, ../scss/pages/_play.scss */
+.guess-input:focus + .guess-lines:after, .guess-input:focus + .guess-lines:before {
+  top: 0;
+}
+/* line 67, ../scss/pages/_play.scss */
+.guess-input:focus + .guess-lines:before {
+  top: inherit;
+  bottom: 0;
+}
+
+/* line 73, ../scss/pages/_play.scss */
+.guess-hint {
+  height: 30px;
+  font-size: 30px;
+  color: #b1b1b1;
+  text-align: center;
+}
+
+/* line 79, ../scss/pages/_play.scss */
+.guess-button {
+  margin-bottom: 25px;
+}
+
+/* line 82, ../scss/pages/_play.scss */
+.get-hint {
+  margin-bottom: 50px;
+}
+
+/* line 85, ../scss/pages/_play.scss */
+.play-end-title {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 35px;
+}
+/* line 89, ../scss/pages/_play.scss */
+.play-end-title.win {
+  color: #0da931;
+}
+/* line 92, ../scss/pages/_play.scss */
+.play-end-title.loose {
+  color: #f70a04;
+}
+
+/* line 96, ../scss/pages/_play.scss */
+.save-title {
+  font-size: 22px;
+  color: #b1b1b1;
+  margin: 55px 0 20px 0;
+  text-align: center;
+}
+
+/* line 102, ../scss/pages/_play.scss */
+.save-form {
+  max-width: 420px;
+  margin: 0 auto;
+}
+/* line 105, ../scss/pages/_play.scss */
+.save-form .form-input, .save-form textarea {
+  margin-bottom: 20px;
+}
+
+/* line 1, ../scss/pages/_rules.scss */
+.rules-content {
+  font-size: 22px;
+  line-height: 32px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* line 20, ../scss/index.scss */
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+/* line 26, ../scss/index.scss */
+.wrapp {
+  padding: 25px 5% 0 5%;
+}
+
+/* line 29, ../scss/index.scss */
+.transition, .green-button, .grey-button, .red-button, .blue-button, .svg-button, .svg-button .svg-icon path, .svg-button .svg-icon line, .cross:after, .cross:before, .wrong-message, .form-input, textarea, .logo, .nav-hint, .nav-scores, .guess-lines:after, .guess-lines:before {
+  transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* line 33, ../scss/index.scss */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 38, ../scss/index.scss */
+.flex-row, .buttons-container, .green-button, .grey-button, .red-button, .blue-button, .form-label, header, .nav-buttons, .guess-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* line 43, ../scss/index.scss */
+.box-shadow {
+  box-shadow: 1px 0px 21px rgba(0, 0, 0, 0.25);
+}
+
+/* line 46, ../scss/index.scss */
+.border-radius, .button, .green-button, .grey-button, .red-button, .blue-button, .form-input, textarea {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 49, ../scss/index.scss */
+.border-box, .green-button, .grey-button, .red-button, .blue-button, .form-input, textarea, header {
+  box-sizing: border-box;
+}
+
+/* line 52, ../scss/index.scss */
+.before-after, .cross:after, .cross:before, .guess-lines:after, .guess-lines:before {
+  position: absolute;
+  content: '';
+  display: table;
+}

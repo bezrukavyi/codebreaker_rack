@@ -1,0 +1,26 @@
+<% unless @scores.empty? %>
+  <div class="table-score">
+    <table class="table-fill">
+      <thead>
+        <tr>
+          <th class="text-left">Name</th>
+          <th class="text-left">Used attempts</th>
+          <th class="text-left">Used hint</th>
+          <th class="text-left">Secret code</th>
+          <th class="text-left">Date</th>
+        </tr>
+      </thead>
+      <tbody class="table-hover">
+        <% @scores.each do |score| %>
+        <tr>
+          <td class="text-left"><%= score[:name] %></td>
+          <td class="text-left"><%= score[:attempts] %></td>
+          <td class="text-left"><%= score[:hint_count] %></td>
+          <td class="text-left"><%= score[:secret_code] %></td>
+          <td class="text-left"><%= Time.at(score[:date]).strftime("%d.%m.%y | %H:%M") %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

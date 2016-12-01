@@ -1,0 +1,28 @@
+header {
+  @extend .border-box;
+  @extend .flex-row;
+  justify-content: space-between;
+  border: 1px solid map-get($blue, default);
+  background: map-get($blue, dark);
+  padding: 20px;
+}
+.logo {
+  @extend .transition;
+  font-size: 30px;
+  color: $white;
+  &:hover {
+    color: map-get($grey, dark);
+  }
+}
+.nav-buttons {
+  @extend .flex-row;
+}
+.nav-hint {
+  font-size: 20px;
+  margin-right: 20px;
+  @extend .logo;
+}
+.nav-scores {
+  font-size: 20px;
+  @extend .logo;
+}

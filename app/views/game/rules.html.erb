@@ -1,0 +1,15 @@
+<div class="rules-container">
+  <div class="rules-content">
+    <p>You need guess secret code. This <%= Game::MAX_SIZE %>-digit number(guess) with symbols from 1 to 6</p>
+    <p>You have <%= Game::MAX_ATTEMPTS %> attempt(s) and <%= Game::MAX_HINT %> hint(s)</p>
+    <p>A '+' indicates an exact match: one of the numbers in the guess is the same as one of the numbers in the secret code and in the same position.</p>
+    <p>A '-' indicates a number match: one of the numbers in the guess is the same as one of the numbers in the secret code but in a different position.</p>
+    <p>A empty answer means that you nothing guessed</p>
+  </div>
+  <div class="buttons-container">
+    <a class="grey-button" href="/">To main page</a>
+    <% if game_exist? %>
+    <a class="blue-button" href="/play">Continiu game</a>
+    <% end %>
+  </div>
+</div>
