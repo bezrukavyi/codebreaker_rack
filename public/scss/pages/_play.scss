@@ -7,9 +7,10 @@
 .guess-list {
   @extend .flex-row;
   justify-content: center;
-  margin: 0 0 20px 0;
+  margin: 0 0 50px 0;
 }
 .guess-item {
+  position: relative;
   margin-right: 20px;
 }
 .guess-progress {
@@ -75,6 +76,9 @@
   font-size: 30px;
   color: map-get($grey, dark);
   text-align: center;
+  bottom: -20px;
+  left: 50%;
+  margin-left: -8px;
 }
 .guess-button {
   margin-bottom: 25px;

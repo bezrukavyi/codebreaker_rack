@@ -8,6 +8,5 @@ use Rack::Session::Cookie, :key => 'codebreaker.session',
                            :expire_after => 2592000,
                            :secret => 'codebreaker'
 
-
 use Codebreaker::Router
 run Codebreaker::App.new

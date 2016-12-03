@@ -16,6 +16,12 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'rack'
+require 'capybara/webkit'
+require 'capybara/rspec'
+require "capybara/dsl"
+require "show_me_the_cookies"
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -30,4 +36,12 @@ RSpec.configure do |config|
   config.color = true
 
   config.formatter = :documentation
+
+  config.include Capybara::DSL
+  config.include ShowMeTheCookies, :type => :feature
+end
+
+Capybara.configure do |config|
+  config.app_host = 'http://localhost:9292'
+  config.default_driver = :webkit
 end

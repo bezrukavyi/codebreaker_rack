@@ -4,46 +4,42 @@
     <!-- Play process -->
     <div class="play-process">
       <!-- Guess form -->
+      <%= @game_opt %>
       <form class="guess-form" action="update" method="post">
         <div class="guess-list">
           <% @game_opt[:secret_code].length.times do |index| %>
-            <% name = "guess[]" %>
             <div class="guess-item">
-              <label for="<%= name %>" class="guess-block">
+              <label for="guess_<%= index %>" class="guess-block">
                 <input
-                id="<%= name %>"
+                id="guess_<%= index %>"
                 class="guess-input"
-                name="<%= name %>"
+                name="guess[]"
                 required pattern="^[1-6]{1}$"
                 value="<%= @game_opt[:last_guess][index] %>" >
                 <div class="guess-lines"></div>
               </label>
-              <div class="guess-hint">
-                <%= hint[index] if !hint.nil? && hint[index] != '*' %>
-              </div>
+              <% if !hint.nil? && !hint.empty? && hint[index] != '*' %>
+                <div class="guess-hint"><%= hint[index] %></div>
+              <% end %>
             </div>
           <% end %>
         </div>
         <% if @game_opt[:attempts] < Game::MAX_ATTEMPTS %>
           <div class="guess-progress">
             Progress
-            <% if @game_opt[:answer].empty? %>
+            <% if @game_opt[:answer] == '' %>
             <span class="progress empty">nothing</span>
             <% else %>
             <span class="progress"><%= @game_opt[:answer] %></span>
             <% end %>
           </div>
         <% end %>
-        <label for="send_guess" class="guess-button green-button">
-          Send<span class="score-circle"><%= @game_opt[:attempts] %></span>
-        </label>
-        <input id="send_guess" type="submit" style="display:none;">
+        <label for="send_guess" class="guess-button green-button">Send<span class="score-circle"><%= @game_opt[:attempts] %></span></label>
+        <input id="send_guess" name="send_guess" type="submit" style="display: none">
       </form>
       <!-- Get hint -->
       <form class="get-hint" action="play" method="post">
-        <label for="get_hint" class="blue-button">
-          Hint<span class="score-circle"><%= @game_opt[:hint_count] %></span>
-        </label>
+        <label for="get_hint" class="blue-button">Hint<span class="score-circle"><%= @game_opt[:hint_count] %></span></label>
         <input id="get_hint" type="submit" name="hint" style="display: none">
       </form>
       <!-- Start new game -->

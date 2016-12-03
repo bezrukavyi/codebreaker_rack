@@ -21,8 +21,8 @@ class GamesController < BaseController
 
   def play
     @hint = game.hint if request.params['hint']
+    game_exist? ? set_opt(parse_opt[:last_guess]) : set_opt
     @game_opt = parse_opt
-    set_opt(@game_opt[:last_guess])
     render 'game/play'
   end
 
