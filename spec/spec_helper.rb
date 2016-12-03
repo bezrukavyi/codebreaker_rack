@@ -41,7 +41,12 @@ RSpec.configure do |config|
   config.include ShowMeTheCookies, :type => :feature
 end
 
+rack_config = File.read(File.absolute_path('rack_config.rb'))
+app = Rack::Builder.new do
+  eval "#{rack_config}"
+end
+
 Capybara.configure do |config|
-  config.app_host = 'http://localhost:9292'
+  config.app = app
   config.default_driver = :webkit
 end
