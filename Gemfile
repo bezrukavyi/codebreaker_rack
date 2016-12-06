@@ -5,7 +5,8 @@ gem 'rack'
 gem 'json'
 gem 'pry'
 
-gem 'rspec'
-gem 'capybara-webkit'
-gem 'capybara'
-gem "show_me_the_cookies"
+group :development, :test do
+  gem 'rspec'
+  gem 'capybara-webkit'
+  gem 'capybara'
+end
