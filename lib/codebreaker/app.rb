@@ -1,22 +1,25 @@
 module Codebreaker
   class App
+
+    attr_reader :env
+
     def call(env)
       @env = env
       dispatch
     end
 
     def dispatch
-      controller.new(@env).send(action)
+      Object.const_get(controller).new(@env).send(action)
     end
 
     private
+
     def action
-      @env[:app_action]
+      env[:app_action]
     end
 
     def controller
-      controller = @env[:app_controller].capitalize + 'sController'
-      Object.const_get(controller)
+      env[:app_controller].split('_').map(&:capitalize).join + 'sController'
     end
   end
 end

@@ -43,9 +43,9 @@
         <input id="get_hint" type="submit" name="hint" style="display: none">
       </form>
       <!-- Start new game -->
-      <a class="new-game grey-button" href="/new">New game</a>
+      <a class="new-game grey-button" href="/create">New game</a>
   </div>
   <% else %>
-    <%= render 'game/_gameover' %>
+    <%= render 'games/_gameover' %>
   <% end %>
 </div>

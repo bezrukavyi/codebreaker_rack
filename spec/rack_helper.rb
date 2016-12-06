@@ -3,4 +3,4 @@ require 'codeguessing'
 require 'lib/codebreaker'
 require 'support/mock_rack_app'
 require 'spec_helper'
-Dir['app/**/*.rb'].sort.each { |f| require f }
+Dir['app/**/*.rb'].sort.each { |file| require file }

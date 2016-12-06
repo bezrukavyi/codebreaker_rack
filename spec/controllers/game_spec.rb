@@ -4,8 +4,8 @@ describe GamesController do
   let(:env) { Rack::MockRequest.env_for('/') }
   subject { GamesController.new(env) }
 
-  describe '#new' do
-    let(:response) { subject.new }
+  describe '#create' do
+    let(:response) { subject.create }
     it 'must create new game' do
       expect(subject.game).to be_kind_of(Game)
     end
@@ -49,8 +49,9 @@ describe GamesController do
     let(:subject_scores) { subject.scores }
 
     before do
+      allow(subject).to receive(:path).and_return(test_path)
       subject.request.session[:game] = 'test_game'
-      subject.save(test_path)
+      subject.save
     end
 
     after do
@@ -76,7 +77,5 @@ describe GamesController do
       expect(subject.game_exist?).to be_falsey
     end
   end
-
-  it 'set_opt'
 
 end

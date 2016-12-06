@@ -1,6 +1,6 @@
 class GamesController < BaseController
 
-  attr_reader :game, :hint, :request, :scores
+  attr_reader :game, :hint, :request, :scores, :path
 
   def initialize(env)
     @request = Rack::Request.new env
@@ -9,21 +9,14 @@ class GamesController < BaseController
     @scores = load(@path)
   end
 
-  def new
+  def index
+    render 'games/index'
+  end
+
+  def create
     @game = Game.new
     set_opt
     redirect_to '/play'
-  end
-
-  def index
-    render 'game/index'
-  end
-
-  def play
-    @hint = game.hint if request.params['hint']
-    game_exist? ? set_opt(parse_opt[:last_guess]) : set_opt
-    @game_opt = parse_opt
-    render 'game/play'
   end
 
   def update
@@ -32,11 +25,14 @@ class GamesController < BaseController
     redirect_to '/play'
   end
 
-  def rules
-    render 'game/rules'
+  def play
+    @hint = game.hint if request.params['hint']
+    game_exist? ? set_opt(parse_opt[:last_guess]) : set_opt
+    @game_opt = parse_opt
+    render 'games/play'
   end
 
-  def save(path = @path)
+  def save
     name = request.params['player'] || 'Anonim'
     @scores << game.cur_score(name)
     File.new(path, 'w') unless File.exist?(path)
@@ -61,7 +57,7 @@ class GamesController < BaseController
 
   def load(path)
     return [] unless File.exist?(path)
-    YAML.load(File.open(path))
+    YAML.load(File.open(path)) || []
   end
 
   def guess_params
@@ -82,7 +78,7 @@ class GamesController < BaseController
 
   def end_game
     if game.state == 'true'
-      return redirect_to '/new'
+      return create
     elsif game.state == 'false'
       return redirect_to '/'
     end

@@ -10,10 +10,16 @@ describe Codebreaker::App do
       env = Rack::MockRequest.env_for('/')
       middleware.call(env)
     end
-    # let(:controller) { subject.send(:controller) }
 
-    it "must return Class" do
-      # expect(controller).to be_kind_of(Class)
+    context "#controller" do
+      it 'simple name' do
+        allow(subject).to receive(:env).and_return({app_controller: 'game'})
+        expect(subject.send(:controller)).to eq('GamesController')
+      end
+      it 'name with underline' do
+        allow(subject).to receive(:env).and_return({app_controller: 'simple_page'})
+        expect(subject.send(:controller)).to eq('SimplePagesController')
+      end
     end
   end
 end

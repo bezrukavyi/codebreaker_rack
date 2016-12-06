@@ -5,11 +5,11 @@ module Codebreaker
 
     ROUTES =  {
       '/':        'game#index',
-      '/rules':   'game#rules',
+      '/rules':   'simple_page#rules',
       '/play':    'game#play',
       '/save':    'game#save',
       '/update':  'game#update',
-      '/new':     'game#new'
+      '/create':  'game#create'
     }
 
     def initialize(app)
