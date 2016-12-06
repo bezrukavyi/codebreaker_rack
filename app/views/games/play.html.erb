@@ -4,7 +4,6 @@
     <!-- Play process -->
     <div class="play-process">
       <!-- Guess form -->
-      <%= @game_opt %>
       <form class="guess-form" action="update" method="post">
         <div class="guess-list">
           <% @game_opt[:secret_code].length.times do |index| %>
