@@ -17,9 +17,7 @@
                 value="<%= @game_opt[:last_guess][index] %>" >
                 <div class="guess-lines"></div>
               </label>
-              <% if !hint.nil? && !hint.empty? && hint[index] != '*' %>
-                <div class="guess-hint"><%= hint[index] %></div>
-              <% end %>
+              <div class="guess-hint"><%= hint[index] if !!hint && hint[index] != '*' %></div>
             </div>
           <% end %>
         </div>
@@ -42,7 +40,7 @@
         <input id="get_hint" type="submit" name="hint" style="display: none">
       </form>
       <!-- Start new game -->
-      <a class="new-game grey-button" href="/create">New game</a>
+      <a class="new-game blue-button-inverse" href="/create">New game</a>
   </div>
   <% else %>
     <%= render 'games/_gameover' %>

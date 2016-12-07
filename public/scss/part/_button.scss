@@ -3,15 +3,31 @@
   @extend .flex-row;
   @extend .border-box;
   box-shadow: none;
-  border: 0;
+  border: 2px solid;
   justify-content: center;
   text-align: center;
   cursor: pointer;
   color: #fff;
   background: map-get($color, default);
+  border-color: map-get($color, default);
   &:hover {
     background: map-get($color, light);
     border-color: map-get($color, light);
+  }
+  &:active {
+    background: map-get($color, dark);
+    border-color: map-get($color, dark);
+  }
+}
+@mixin button-iverse($color) {
+  @include button($color);
+  background: $white;
+  border-color: map-get($color, default);
+  color: map-get($color, default);
+  &:hover {
+    background: map-get($color, default);
+    border-color: map-get($color, default);
+    color: $white;
   }
   &:active {
     background: map-get($color, dark);
@@ -45,10 +61,13 @@
   @extend .button;
   @include button($green);
 }
-.grey-button {
+.blue-button-inverse {
   @extend .button;
-  @include button($grey);
-  border: 1px solid #ccc;
+  @include button-iverse($blue);
+}
+.green-button-inverse {
+  @extend .button;
+  @include button-iverse($green);
 }
 .red-button {
   @extend .button;
