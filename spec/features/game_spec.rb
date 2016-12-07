@@ -29,11 +29,13 @@ RSpec.feature "Game process", :type => :feature do
     scenario 'get progress after guess' do
       find('label', :text => 'Send').click
       expect(page).to have_content 'Progress'
-      expect(page).not_to have_css 'div.guess-hint'
+      page.all('div.guess-hint').each do |hint|
+        expect(hint.text).to be_empty
+      end
     end
     scenario 'get hint after click on hint' do
       find('label', :text => 'Hint').click
-      expect(page).to have_css 'div.guess-hint'
+      assert_selector('div.guess-hint', text: /\d{1}/)
     end
     scenario 'start new game' do
       old_game = page.driver.cookies['codebreaker.session']
@@ -70,7 +72,6 @@ RSpec.feature "Game process", :type => :feature do
         allow_any_instance_of(GamesController).to receive(:path).and_return(test_path)
         fill_in 'player', with: 'Test Name'
         click_on 'Save result'
-        page.save_screenshot('signed_in.png')
       end
     end
 
@@ -86,11 +87,5 @@ RSpec.feature "Game process", :type => :feature do
     scenario 'must be button new game' do
       expect(page).to have_content 'New game'
     end
-  end
-
-  scenario 'page of rules' do
-    visit '/rules'
-    expect(page).to have_content 'Rules'
-    expect(page).to have_content 'To main page'
   end
 end
