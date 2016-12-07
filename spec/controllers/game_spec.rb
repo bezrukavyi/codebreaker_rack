@@ -51,16 +51,13 @@ describe GamesController do
     before do
       allow(subject).to receive(:path).and_return(test_path)
       subject.request.session[:game] = 'test_game'
-      subject.save
-    end
-
-    after do
-      File.open(test_path, 'w') { |f| YAML.dump(f) }
+      subject.send(:save)
     end
 
     it 'must be equal scores' do
       data_scores = YAML.load_file(test_path)
       expect(subject_scores).to eq(data_scores)
+      File.open(test_path, 'w') { |f| YAML.dump(f) }
     end
     it 'must clear session game' do
       expect(subject.request.session[:game]).to eq('')

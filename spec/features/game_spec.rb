@@ -47,13 +47,13 @@ RSpec.feature "Game process", :type => :feature do
   end
 
   context 'result of play' do
+    let(:test_path) { File.expand_path('../../fixtures/test.yml', __FILE__) }
     before do
       allow_any_instance_of(Game).to receive(:random).and_return('1111')
+      allow_any_instance_of(GamesController).to receive(:path).and_return(test_path)
       visit '/play'
     end
     context 'win process' do
-      let(:test_path) { File.expand_path('../../fixtures/test.yml', __FILE__) }
-
       before do
         all_guess_inputs = page.all(:fillable_field, 'guess[]')
         all_guess_inputs.each{ |field| field.set('1') }
@@ -68,10 +68,11 @@ RSpec.feature "Game process", :type => :feature do
         expect(page).to have_content 'You win!'
         expect(page).to have_css 'form.save-form'
       end
+
       it 'save result' do
-        allow_any_instance_of(GamesController).to receive(:path).and_return(test_path)
         fill_in 'player', with: 'Test Name'
         click_on 'Save result'
+        expect(page).to have_content 'Test Name'
       end
     end
 

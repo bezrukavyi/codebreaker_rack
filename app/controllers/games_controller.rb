@@ -6,7 +6,7 @@ class GamesController < BaseController
     @request = Rack::Request.new env
     @game = Game.new(parse_opt)
     @path = File.absolute_path('data/scores.yml')
-    @scores = load(@path)
+    @scores = load(path)
   end
 
   def index
@@ -32,17 +32,6 @@ class GamesController < BaseController
     render 'games/play'
   end
 
-  def save
-    name = request.params['player'] || 'Anonim'
-    @scores << game.cur_score(name)
-    File.new(path, 'w') unless File.exist?(path)
-    File.open(path, "r+") do |f|
-      f.write(@scores.to_yaml)
-    end
-    clear_opt
-    redirect_to '/'
-  end
-
   def game_exist?
     game_option = request.session[:game]
     return false if game_option.nil? || game_option.empty?
@@ -53,6 +42,17 @@ class GamesController < BaseController
   def parse_opt
     return {} unless game_exist?
     JSON.parse( request.session[:game], {:symbolize_names => true} )
+  end
+
+  def save
+    name = request.params['player'] || 'Anonim'
+    @scores << game.cur_score(name)
+    File.new(path, 'w') unless File.exist?(path)
+    File.open(path, "r+") do |f|
+      f.write(@scores.to_yaml)
+    end
+    clear_opt
+    redirect_to '/'
   end
 
   def load(path)
@@ -75,13 +75,4 @@ class GamesController < BaseController
     cur_game[:last_guess] = last_guess
     @request.session[:game] = cur_game.to_json
   end
-
-  def end_game
-    if game.state == 'true'
-      return create
-    elsif game.state == 'false'
-      return redirect_to '/'
-    end
-  end
-
 end
