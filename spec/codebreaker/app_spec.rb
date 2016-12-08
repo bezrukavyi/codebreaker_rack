@@ -1,7 +1,6 @@
 require 'rack_helper'
 
 describe Codebreaker::App do
-  subject { Codebreaker::App.new }
   let(:middleware) { Codebreaker::Router.new(subject) }
   let(:request) { Rack::MockRequest.new(subject) }
 

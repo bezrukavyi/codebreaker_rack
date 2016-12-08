@@ -1,7 +1,6 @@
 require "rack_helper"
 
 RSpec.feature "Game process", :type => :feature do
-
   context "main page" do
     scenario 'when game exist' do
       visit '/play'
