@@ -1,0 +1,128 @@
+$labelMaxWidth: 160px;
+$labelMinWidth: 70px;
+$marginLabel: 10px;
+.send-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.wrong-message {
+  @extend .transition;
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
+  font-size: 14px;
+  font-weight: $bold;
+  font-style: italic;
+  color: map-get($red, wrong);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.show {
+    opacity: 1;
+    height: 40px !important;
+  }
+}
+.fields-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  max-width: 535px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.form-input {
+  @extend .transition;
+  @extend .border-radius;
+  @extend .border-box;
+  display: flex;
+  flex: 2;
+  width: 100%;
+  box-shadow: none;
+  padding: 5px 10px;
+  font-size: 18px;
+  line-height: 20px;
+  color: $black;
+  font-weight: normal;
+  min-height: 38px;
+  background-color: $white;
+  border: 1px solid map-get($grey, dark);
+  &:hover {
+    @extend .form-input-hover;
+  }
+  &:focus {
+    @extend .form-input-focus;
+  }
+  &.wrong {
+    border-color: map-get($red, wrong);
+  }
+  &.readonly {
+    border-color: transparent;
+    &:hover {
+      border-color: transparent;
+      box-shadow: none;
+    }
+    &:active {
+      border-color: transparent;
+    }
+    &:focus {
+      border-color: transparent;
+    }
+  }
+}
+/* Input state */
+.form-input-hover {
+  border-color: map-get($green, light);
+  box-shadow: 0px 0 4px map-get($green, light);
+}
+.form-input-focus {
+  box-shadow: none;
+  border-color: map-get($green, light);
+}
+/* END Input state */
+.form-label {
+  @extend .flex-row;
+  justify-content: flex-end;
+  text-align: right;
+  font-size: 15px;
+  line-height: 20px;
+  margin-right: $marginLabel;
+  color: #3a3a3a;
+  width: $labelMaxWidth;
+  font-weight: $light;
+  img, .svg-icon {
+    display: none;
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    @include middle(26px);
+    left: 5px;
+  }
+}
+textarea {
+  @extend .form-input;
+  resize: none;
+  outline: none;
+  box-shadow: none;
+  margin: 0;
+  text-align: left;
+  // min-height: 145px;
+}
+/* Necessar */
+.necessar {
+  position: relative;
+  &:after {
+    content: '*';
+    color: map-get($red, wrong);
+  }
+}
+.necessar-message {
+  font-size: 14px;
+  padding-left: 225px;
+  margin: 15px 0 10px 0;
+  color: map-get($red, wrong);
+}
+/* END Necessar */

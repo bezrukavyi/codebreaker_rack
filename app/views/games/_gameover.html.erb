@@ -1,0 +1,21 @@
+<div class="win-container">
+  <% if @game.win? %>
+    <div class="play-end-title win">You win!</div>
+  <% else %>
+    <div class="play-end-title loose">You loose!</div>
+    <div class="play-end-title">Game's secret code was <%= @game.secret_code %></div>
+  <% end %>
+
+  <div class="buttons-container">
+    <a class="blue-button-inverse" href="/">To main page</a>
+    <a class="green-button-inverse" href="/create">New game</a>
+  </div>
+
+  <% if @game.win? %>
+    <div class="save-title">You can save your result</div>
+    <form class="save-form" action="/save" class="">
+      <input class="form-input" type="text" name="player" placeholder="Your name" maxlength="20">
+      <input class="green-button" type="submit" name="name" value="Save result">
+    </form>
+  <% end %>
+</div>

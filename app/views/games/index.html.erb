@@ -1,0 +1,10 @@
+<div class="index-container">
+  <h2 class="index-title">Let's play</h2>
+  <div class="buttons-container">
+    <a class="green-button-inverse" href="/create">New game</a>
+    <% if game_exist? %>
+      <a class="blue-button-inverse" href="/play">Continue game</a>
+    <% end %>
+  </div>
+  <%= render 'games/_table' %>
+</div>
